@@ -1,0 +1,46 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+body{
+  background-color: blue;
+}
+#container {
+  display: flex;
+  flex-direction: column;
+}
+.student{
+  border: 5px solid black;
+  border-radius: 8px;
+  margin: 1vw;
+  background-color: white;
+}
+.pushRight {
+  text-align: right;
+}
+
+.xx-large {
+  font-size: 3em;
+}
+
+.bordered {
+  border-width: 1px;
+  border-color: goldenrod;
+  border-style: solid;
+}
+
+.dashed {
+  border-style: dashed;
+}
+
+.section--padded {
+  padding: 10px;
+}
+
+.passing {
+  color: green;
+}
+
+.failing {
+  color: orange;
+}
