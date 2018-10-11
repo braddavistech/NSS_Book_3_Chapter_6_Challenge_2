@@ -73,34 +73,25 @@ const students = [
   }
 ]
 
-const h1 = (students,...extra) => {
-  console.log(extra);
-  console.log("Extra Array Element 1: " + extra[0] + "          Extra Array Element 2: " + extra[1]+ "          Extra Array Element 3: " + extra[2] );
-  if (students.score >= 60){
-    return `<div class ="student"><h1 class="xx-large passing">${students.name}</h1>`
-  } else {
-    return`<div class ="student"><h1 class="xx-large failing">${students.name}</h1>`
-  }
+const element = (type, ...extra) => {
+  console.log(type, extra);
+  return `<${type} class="${extra[0]}">${extra[1]}</${type}>`
 };
-
-const section = (students, ...extra) => {
-  return `<section class="bordered dashed section--padder">${students.class}</section>`
-};
-
-const aside = (students, ...extra) => {
-  return `<aside class="pushRight">${students.info}</aside></div>`
-};
-
-
 
 const studentCont = document.querySelector("#container");
 individualStudent = [];
 let a = 0;
 let b = 1;
 let c = 2;
+let passFail = "";
 
 for (let i = 0; i < students.length; i++){
-  individualStudent.push(h1(students[i], a, b, c) + section(students[i], a, b, c) + aside(students[i], a, b, c));
+  if (students[i].score >= 60){
+    passFail = "xx-large passing";
+  } else {
+    passFail = "xx-large failing";
+  }
+  individualStudent.push('<div class="student">' + element("h1", passFail, students[i].name, a, b, c) + element("section", "bordered dashed section--padder", students[i].class, a, b, c) + element("aside", "pushRight", students[i].info, a, b, c) + '</div>');
 };
 
 studentCont.innerHTML = individualStudent.join("");
