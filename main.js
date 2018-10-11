@@ -73,9 +73,8 @@ const students = [
   }
 ]
 
-const element = (type, ...extra) => {
-  console.log(type, extra);
-  return `<${type} class="${extra[0]}">${extra[1]}</${type}>`
+const element = (...extra) => {
+  return `<${extra[0]} class="${extra[1]}">${extra[2]}</${extra[0]}>`
 };
 
 const studentCont = document.querySelector("#container");
